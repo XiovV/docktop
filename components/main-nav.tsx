@@ -1,28 +1,40 @@
+"use client";
+
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
+import clsx from "clsx";
+import { usePathname } from "next/navigation";
+
+const navLinks = [
+  { name: "Host", href: "/" },
+  { name: "Containers", href: "/containers" },
+];
 
 export function MainNav({
   className,
   ...props
 }: React.HTMLAttributes<HTMLElement>) {
+  const pathname = usePathname();
   return (
-    <nav
-      className={cn("flex items-center space-x-4 lg:space-x-6", className)}
-      {...props}
-    >
-      <Link
-        href="/"
-        className="font-medium transition-colors hover:text-primary"
+    <>
+      <nav
+        className={cn("flex items-center space-x-4 lg:space-x-6", className)}
+        {...props}
       >
-        Host
-      </Link>
-      <Link
-        href="/containers"
-        className="font-medium text-muted-foreground transition-colors hover:text-primary"
-      >
-        Containers
-      </Link>
-    </nav>
+        {navLinks.map((link) => {
+          return (
+            <Link
+              href={link.href}
+              className={clsx("font-medium", {
+                "text-muted-foreground": pathname !== link.href,
+              })}
+            >
+              {link.name}
+            </Link>
+          );
+        })}
+      </nav>
+    </>
   );
 }
