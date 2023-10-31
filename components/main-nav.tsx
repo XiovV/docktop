@@ -18,10 +18,7 @@ export function MainNav({
   const pathname = usePathname();
   return (
     <>
-      <nav
-        className={cn("flex items-center space-x-4 lg:space-x-6", className)}
-        {...props}
-      >
+      <nav className={cn("flex lg:space-x-6", className)} {...props}>
         {navLinks.map((link) => {
           return (
             <Link
@@ -35,6 +32,17 @@ export function MainNav({
           );
         })}
       </nav>
+
+      <div className="ml-auto flex px-24">
+        <Link
+          href="/settings"
+          className={clsx("font-medium", {
+            "text-muted-foreground": pathname !== "/settings",
+          })}
+        >
+          Settings
+        </Link>
+      </div>
     </>
   );
 }

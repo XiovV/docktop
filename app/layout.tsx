@@ -21,14 +21,6 @@ export default function RootLayout({
         <div className="border-b">
           <div className="flex h-16 items-center px-4">
             <MainNav className="mx-6 px-24" />
-            <div className="ml-auto flex px-24">
-              <Link
-                href="/settings"
-                className="font-medium text-muted-foreground"
-              >
-                Settings
-              </Link>
-            </div>
           </div>
         </div>
 
