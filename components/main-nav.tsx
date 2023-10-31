@@ -13,13 +13,13 @@ export function MainNav({
     >
       <Link
         href="/"
-        className="text-sm font-medium transition-colors hover:text-primary"
+        className="font-medium transition-colors hover:text-primary"
       >
         Host
       </Link>
       <Link
         href="/containers"
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+        className="font-medium text-muted-foreground transition-colors hover:text-primary"
       >
         Containers
       </Link>
